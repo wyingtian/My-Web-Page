@@ -55,7 +55,3 @@ display the month of next year. it uses the program yearcal and name2num.
 				ewp.tail	  end part of html, used by ewp2.cgi
 				
 		Good thing: the webpage generate checkboxes with the titles in the data file, the user will not need to remembere the exact name of the page
-
-
-
-	
