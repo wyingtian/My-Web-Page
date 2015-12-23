@@ -1,0 +1,23 @@
+<b>View a Page</b></dt>
+	<dd>
+	<p>
+	Use this function to see what a page looks like.
+	Enter the name of the page and press the <b>view</b>
+	button.
+	<p>
+	<form action=view_page.cgi method=get>
+	<table border=0 cellpadding=2 cellspacing=0>
+	<tr>
+	   <td align=right>Page name:</td>
+	   <td><input type=text name=pagename size=20></td>
+	</tr>
+	<tr>
+	   <td></td>
+	   <td><input type=submit value=' view '></td>
+	</tr>
+	</table>
+	</form>
+	</dd>
+</dl>
+</body>
+</html>

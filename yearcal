@@ -1,0 +1,68 @@
+#!/bin/sh
+#
+#	yearcal:	print out calendars for a set of months in a year
+#	dependency:	isyear function  
+#				name2num function
+#				ncal2.1
+#	usage:		e.g yearcal 2 - 5 feb 2014
+#				supports a ragne of months, no more than one year info 
+#				if year is not specified, treate as current year
+#
+
+if [ $# = 0 ] ; then
+	echo "usage: $0 [month - month] [month ..] [year]"
+	exit 1
+fi
+
+LIST=""
+count=0;
+# while more args
+while [ $# -gt 0 ]
+
+do
+# get the year value
+	if  [ $(./isyear $1) ]
+		then YEAR=$1;
+# process "-" as a range of month
+	elif [ $1 = "-" ]
+		then
+# change the month before - to number
+		P=$(./name2num $prevar)
+# shift to the argument to after -
+		shift
+# change the month after - to number
+		Q=$(./name2num $1)
+# month before - is process already, 
+# start with the next month
+		R=$((P+1))
+# process the list of months 
+		while [ $R -le $Q ]
+		do
+# add the month to the end of list			
+			LIST="$LIST $R"
+			R=$(expr $R + 1)
+		done
+# add the mont to the list
+	elif M=$(./name2num $1)
+	then
+		LIST="$LIST $M"
+	else
+		echo "$1: bad month"
+		exit 1
+	fi
+# store the value to prevar before next loop
+	prevar=$1;
+	shift ;
+done			
+
+# if the list of month is empty print the calender or the year
+if [ -z "$LIST" -a "$LIST"!=" " ]; then
+    /usr/bin/cal $YEAR
+fi
+
+#  process each mont in the list
+for L in $LIST
+do
+	./ncal2.1 $L $YEAR
+done
+exit 0

@@ -1,0 +1,13 @@
+<html>
+<!-- a web page called cities -->
+<head>
+	<title>cities</title>
+</head>
+
+<body bgcolor=white>
+<b>A Web Page for cities</b>
+<hr>
+Customized Links for cities
+<p>
+<center>
+<table border=1 cellpadding=5>
